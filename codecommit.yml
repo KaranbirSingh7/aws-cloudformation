@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Description: 'Template to create CodeCommit repo'
+
+Parameters:
+  RepoName:
+    Description: 'AWS codecommit repo name'
+    Type: String
+    Default: 'sample-codecommit-repo'
+
+Resources:
+  CodeCommitRepo:
+    Type: AWS::CodeCommit::Repository
+    Properties:
+      RepositoryDescription: 'A simple repo to store code'
+      RepositoryName: !Ref RepoName
+
+Outputs:
+  CodeCommitUrl:
+    Value: !GetAtt CodeCommitRepo.CloneUrlHttp
