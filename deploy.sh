@@ -10,6 +10,7 @@ if [ -z "$1" ] && [ -z $2"" ]; then
     exit 1
 fi
 
-cfn-lint $2
+
+# cfn-lint $2
 
 aws cloudformation deploy --stack-name $1 --template-file $2
