@@ -1,0 +1,15 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+
+Resources:
+  # create random bucket
+  myBucketResource:
+    Type: AWS::S3::Bucket
+
+  # create resource
+  # this will be called when DELETE is initiated
+  LambdaUsedToCleanUp:
+    Type: Custom::cleanupbucket
+    Properties:
+      ServiceToken: !ImportValue EmptyS3BucketLambda
+      BucketName: !Ref myBucketResource
