@@ -9,7 +9,8 @@ Resources:
   # create resource
   # this will be called when DELETE is initiated
   LambdaUsedToCleanUp:
-    Type: Custom::cleanupbucket
+    Type: Custom::cleanupbucketresource
     Properties:
+      # this token here is ARN to custom lambda function that we created earlier
       ServiceToken: !ImportValue EmptyS3BucketLambda
       BucketName: !Ref myBucketResource

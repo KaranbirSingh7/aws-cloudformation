@@ -1,6 +1,7 @@
 #!/bin/bash
-
 set -euo pipefail
+
+set -o xtrace
 
 echo "[...] Deploying cloud formation stack: $1 from $2";
 
